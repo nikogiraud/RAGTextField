@@ -1,0 +1,16 @@
+PODS:
+  - RAGTextField (0.13.0)
+
+DEPENDENCIES:
+  - RAGTextField (from `../`)
+
+EXTERNAL SOURCES:
+  RAGTextField:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RAGTextField: 5a94e334dba9bd1ce49cecb52e660026ca66de19
+
+PODFILE CHECKSUM: 49ab1e44f0e4c093a292143cccd721727174919d
+
+COCOAPODS: 1.9.3
