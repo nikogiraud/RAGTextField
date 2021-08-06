@@ -378,7 +378,7 @@ open class RAGTextField: UITextField {
     /// Swaps the left and right text padding values if the current user interface direction is right-to-left.
     private var userInterfaceDirectionAwareTextPadding: UIEdgeInsets {
         
-        if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+        if UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .leftToRight {
             return textPadding
         }
         
@@ -429,7 +429,7 @@ open class RAGTextField: UITextField {
     /// Whether the left view is displayed to the left or to the right of the text.
     private var leftViewPosition: HorizontalPosition {
         
-        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+        if UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft {
             return .right
         } else {
             return .left
@@ -457,7 +457,7 @@ open class RAGTextField: UITextField {
     /// Whether the left view is displayed to the left or to the right of the text.
     private var rightViewPosition: HorizontalPosition {
         
-        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+        if UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft {
             return .left
         } else {
             return .right
@@ -491,7 +491,7 @@ open class RAGTextField: UITextField {
     /// Whether the clear button is displayed to the left or to the right of the text.
     private var clearButtonPosition: HorizontalPosition {
         
-        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+        if UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft {
             return .left
         } else {
             return .right
@@ -979,7 +979,7 @@ open class RAGTextField: UITextField {
         
         let constraint: NSLayoutConstraint
         
-        switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
+        switch (textAlignment, UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute)) {
         case (.left, .leftToRight), (.right, .rightToLeft), (.justified, _), (.natural, _):
             constraint = placeholderView.leadingAnchor.constraint(equalTo: placeholderContainerView.leadingAnchor)
         case (.left, .rightToLeft), (.right, .leftToRight):
@@ -1006,7 +1006,7 @@ open class RAGTextField: UITextField {
     
     private func normalHorizontalPlaceholderConstraintConstant(for textAlignment: NSTextAlignment) -> CGFloat {
         
-        switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
+        switch (textAlignment, UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute)) {
         case (.natural, .leftToRight), (.justified, .leftToRight), (.left, _):
             return computeLeftInsetToText()
         case (.natural, .rightToLeft), (.justified, .rightToLeft), (.right, _):
@@ -1028,7 +1028,7 @@ open class RAGTextField: UITextField {
         
         let constraint: NSLayoutConstraint
         
-        switch (textAlignment, UIApplication.shared.userInterfaceLayoutDirection) {
+        switch (textAlignment, UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute)) {
         case (.left, .leftToRight), (.right, .rightToLeft), (.justified, _), (.natural, _):
             constraint = placeholderView.leadingAnchor.constraint(equalTo: placeholderContainerView.leadingAnchor)
         case (.left, .rightToLeft), (.right, .leftToRight):

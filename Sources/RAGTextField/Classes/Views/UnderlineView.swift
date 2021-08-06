@@ -246,13 +246,13 @@ open class UnderlineView: UIView {
         case .expandsFromCenter, .notAnimated:
             leadingConstraint?.isActive = false
             trailingConstraint?.isActive = false
-        case .expandsFromRight where UIApplication.shared.userInterfaceLayoutDirection == .leftToRight:
+        case .expandsFromRight where UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft:
             leadingConstraint?.isActive = false
             trailingConstraint?.isActive = true
         case .expandsFromRight:
             leadingConstraint?.isActive = true
             trailingConstraint?.isActive = false
-        case .expandsFromLeft where UIApplication.shared.userInterfaceLayoutDirection == .leftToRight:
+        case .expandsFromLeft where UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .leftToRight:
             leadingConstraint?.isActive = true
             trailingConstraint?.isActive = false
         case .expandsFromLeft:
